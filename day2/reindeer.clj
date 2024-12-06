@@ -4,8 +4,8 @@
 (defn safe [report]
   (and 
     (or 
-      (reduce > report)
-      (reduce < report))
+      (apply > report)
+      (apply < report))
     (every?
       (comp
         (partition 2 1)
@@ -14,9 +14,11 @@
         (map <= 3))
       report)))
 
-(as-> (line-seq (java.io.BufferedReader. *in*) x
-  (map (split #" ") x)
-  (safe)  
-  (filter identity)
-  (count)
-  (println))
+(as-> (doall (line-seq (java.io.BufferedReader. *in*))) x
+  (map #(str/split % #" ") x)
+  (map (partial map #(Integer/parseInt %)) x)
+  ;(prn x) XXX
+  (map safe x)  
+  (filter identity x)
+  (count x)
+  (println x))
