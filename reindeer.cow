@@ -1,0 +1,13 @@
+##
+## Reindeer
+##
+$the_cow = <<EOC;
+   $thoughts
+    $thoughts  \\/ /       \\ \\/
+     $thoughts  \\_|_/   \\_|_/
+           \\^__^/
+            ($eyes)\_______
+            (__)\       )>  
+             $tongue ||----- |
+                ||     ||
+EOC
